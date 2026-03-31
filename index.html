@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Premium To-Do App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 🌙 Theme Toggle -->
+  <button id="themeToggle">🌙</button>
+
+  <!-- Heading -->
+  <h1>✨ My Tasks</h1>
+
+  <!-- Input Section -->
+  <div class="input-section">
+    <input type="text" id="taskInput" placeholder="Enter a task...">
+    <input type="date" id="dueDate">
+    <button id="addBtn">Add</button>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab active" data-filter="all">All</button>
+    <button class="tab" data-filter="active">Active</button>
+    <button class="tab" data-filter="completed">Completed</button>
+  </div>
+
+  <!-- 📊 Stats -->
+  <div class="stats">
+    <span id="totalTasks">Total: 0</span>
+    <span id="activeTasks">Active: 0</span>
+    <span id="completedTasks">Done: 0</span>
+  </div>
+
+  <!-- 📈 Productivity Graph -->
+  <canvas id="chart" width="200" height="120"></canvas>
+
+  <!-- Task List -->
+  <ul id="taskList"></ul>
+
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+</body>
+</html>

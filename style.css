@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #6c63ff);
+  transition: 0.4s;
+}
+
+/* Light Mode */
+body.light {
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 420px;
+  padding: 25px;
+  border-radius: 20px;
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  color: white;
+  transition: 0.4s;
+}
+
+body.light .container {
+  background: rgba(255,255,255,0.7);
+  color: black;
+}
+
+/* Toggle Button */
+#themeToggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: rgba(255,255,255,0.2);
+  color: inherit;
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Input */
+.input-section {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.input-section input,
+.input-section button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.input-section input {
+  flex: 1;
+}
+
+.input-section button {
+  background: #6c63ff;
+  color: white;
+  cursor: pointer;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.tab {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  margin: 2px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+  color: inherit;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #6c63ff;
+  color: white;
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Tasks */
+li {
+  background: rgba(255,255,255,0.1);
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: grab;
+  transition: all 0.25s ease;
+  animation: fadeIn 0.3s ease;
+}
+
+li:hover {
+  transform: scale(1.02);
+}
+
+li:active {
+  cursor: grabbing;
+}
+
+/* Completed */
+li.completed .task-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Overdue */
+.overdue {
+  border-left: 4px solid #ff4d4d;
+}
+
+/* Text */
+.task-text {
+  cursor: pointer;
+}
+
+/* Date */
+.date {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* Delete */
+.delete-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.done-btn {
+  border: none;
+  background: #4CAF50;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.done-btn:hover {
+  background: #3e9443;
+}
