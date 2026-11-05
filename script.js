@@ -2,6 +2,7 @@
 const input = document.getElementById("taskInput");
 const dateInput = document.getElementById("dueDate");
 const addBtn = document.getElementById("addBtn");
+const priorityInput = document.getElementById("priorityInput");
 const list = document.getElementById("taskList");
 const tabs = document.querySelectorAll(".tab");
 
@@ -20,23 +21,27 @@ let dragId = null;
 
 // ===== ADD TASK =====
 addBtn.addEventListener("click", () => {
-  const text = input.value.trim();
-  const date = dateInput.value;
 
-  if (!text) return;
+    const text = input.value.trim();
+    const date = dateInput.value;
+    const priority = priorityInput.value;
 
-  tasks.push({
-    id: Date.now(),
-    text,
-    completed: false,
-    date
-  });
+    if (!text) return;
 
-  input.value = "";
-  dateInput.value = "";
+    tasks.push({
+        id: Date.now(),
+        text,
+        completed: false,
+        date,
+        priority
+    });
 
-  saveTasks();
-  renderTasks();
+    input.value = "";
+    dateInput.value = "";
+    priorityInput.value = "medium";
+
+    saveTasks();
+    renderTasks();
 });
 
 // ===== SAVE =====
@@ -83,35 +88,27 @@ function updateStats() {
 }
 
 // ===== RENDER =====
-function renderTasks() {
-  list.innerHTML = "";
+const priority = task.priority || "medium";
 
-  let filtered = tasks;
+li.innerHTML = `
+    <div>
+        <span class="task-text">${task.text}</span><br>
 
-  if (currentFilter === "active") {
-    filtered = tasks.filter(t => !t.completed);
-  } else if (currentFilter === "completed") {
-    filtered = tasks.filter(t => t.completed);
-  }
+        <span class="date">${task.date || ""}</span>
 
-  const today = new Date().toISOString().split("T")[0];
+        <span class="priority-badge priority-${priority}">
+            ${priority.toUpperCase()} PRIORITY
+        </span>
+    </div>
 
-  filtered.forEach(task => {
-    const li = document.createElement("li");
-    li.setAttribute("data-id", task.id);
-    li.draggable = true;
+    <div class="actions">
+        <button class="done-btn">
+            ${task.completed ? "↩️ Undo" : "✅ Done"}
+        </button>
 
-    if (task.completed) li.classList.add("completed");
-
-    if (task.date && task.date < today && !task.completed) {
-      li.classList.add("overdue");
-    }
-
-    li.innerHTML = `
-  <div>
-    <span class="task-text">${task.text}</span><br>
-    <span class="date">${task.date || ""}</span>
-  </div>
+        <button class="delete-btn">❌</button>
+    </div>
+`;
 
   <div class="actions">
     <button class="done-btn">
