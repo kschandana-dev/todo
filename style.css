@@ -197,3 +197,90 @@ li.completed .task-text {
 .done-btn:hover {
   background: #3e9443;
 }
+/* Task Priority */
+
+.priority-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    margin-top: 6px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* High Priority */
+
+.priority-high {
+    background: rgba(255, 77, 77, 0.2);
+    color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+}
+
+/* Medium Priority */
+
+.priority-medium {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+    border: 1px solid #ffc107;
+}
+
+/* Low Priority */
+
+.priority-low {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid #4caf50;
+}
+.input-section select {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    min-width: 120px;
+}
+/* ===== CATEGORY BADGES ===== */
+
+.category-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 5px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* Study */
+
+.category-study {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+/* Work */
+
+.category-work {
+    background: #f3e8ff;
+    color: #7e22ce;
+}
+
+/* Personal */
+
+.category-personal {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+/* Shopping */
+
+.category-shopping {
+    background: #ffedd5;
+    color: #c2410c;
+}
+
+/* Other */
+
+.category-other {
+    background: #e5e7eb;
+    color: #374151;
+}
