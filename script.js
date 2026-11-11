@@ -4,6 +4,7 @@ const input = document.getElementById("taskInput");
 const dateInput = document.getElementById("dueDate");
 const addBtn = document.getElementById("addBtn");
 const priorityInput = document.getElementById("priorityInput");
+const categoryInput = document.getElementById("categoryInput");
 
 const list = document.getElementById("taskList");
 const tabs = document.querySelectorAll(".tab");
@@ -34,6 +35,7 @@ addBtn.addEventListener("click", () => {
     const text = input.value.trim();
     const date = dateInput.value;
     const priority = priorityInput.value;
+    const category = categoryInput.value;
 
     if (!text) return;
 
@@ -47,13 +49,16 @@ addBtn.addEventListener("click", () => {
 
         date: date,
 
-        priority: priority
+        priority: priority,
+
+        category: category
 
     });
 
     input.value = "";
     dateInput.value = "";
     priorityInput.value = "medium";
+    categoryInput.value = "other";
 
     saveTasks();
 
@@ -182,6 +187,11 @@ function renderTasks() {
         const priority = task.priority || "medium";
 
 
+        // Get category
+
+        const category = task.category || "other";
+
+
         // Task text
 
         const taskText = document.createElement("span");
@@ -211,6 +221,17 @@ function renderTasks() {
             `${priority.toUpperCase()} PRIORITY`;
 
 
+        // Category badge
+
+        const categoryBadge = document.createElement("span");
+
+        categoryBadge.className =
+            `category-badge category-${category}`;
+
+        categoryBadge.textContent =
+            category.charAt(0).toUpperCase() + category.slice(1);
+
+
         // Task information section
 
         const taskInfo = document.createElement("div");
@@ -224,6 +245,8 @@ function renderTasks() {
         taskInfo.appendChild(document.createElement("br"));
 
         taskInfo.appendChild(priorityBadge);
+
+        taskInfo.appendChild(categoryBadge);
 
 
         // Action buttons section
